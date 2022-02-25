@@ -79,6 +79,7 @@ class MysqlInfoTest extends InfoTest
                 'autoinc' => true,
                 'primary' => true,
                 'options' => null,
+                'native' => 'int',
             ],
             'name' => [
                 'name' => 'name',
@@ -90,6 +91,7 @@ class MysqlInfoTest extends InfoTest
                 'autoinc' => false,
                 'primary' => false,
                 'options' => null,
+                'native' => 'string',
             ],
             'test_size_scale' => [
                 'name' => 'test_size_scale',
@@ -101,6 +103,7 @@ class MysqlInfoTest extends InfoTest
                 'autoinc' => false,
                 'primary' => false,
                 'options' => null,
+                'native' => 'float',
             ],
             'test_default_null' => [
                 'name' => 'test_default_null',
@@ -112,6 +115,7 @@ class MysqlInfoTest extends InfoTest
                 'autoinc' => false,
                 'primary' => false,
                 'options' => null,
+                'native' => 'string',
             ],
             'test_default_string' => [
                 'name' => 'test_default_string',
@@ -123,6 +127,7 @@ class MysqlInfoTest extends InfoTest
                 'autoinc' => false,
                 'primary' => false,
                 'options' => null,
+                'native' => 'string',
             ],
             'test_default_number' => [
                 'name' => 'test_default_number',
@@ -134,6 +139,7 @@ class MysqlInfoTest extends InfoTest
                 'autoinc' => false,
                 'primary' => false,
                 'options' => null,
+                'native' => 'float',
             ],
             'test_default_integer' => [
                 'name' => 'test_default_integer',
@@ -145,6 +151,7 @@ class MysqlInfoTest extends InfoTest
                 'autoinc' => false,
                 'primary' => false,
                 'options' => null,
+                'native' => 'int',
             ],
             'test_default_ignore' => [
                 'name' => 'test_default_ignore',
@@ -152,10 +159,11 @@ class MysqlInfoTest extends InfoTest
                 'size' => null,
                 'scale' => null,
                 'notnull' => true,
-                'default' => null,
+              //  'default' => null,
                 'autoinc' => false,
                 'primary' => false,
                 'options' => null,
+                'native' => 'string',
             ],
             'test_enum' => [
                 'name' => 'test_enum',
@@ -167,6 +175,7 @@ class MysqlInfoTest extends InfoTest
                 'autoinc' => false,
                 'primary' => false,
                 'options' => ['foo', 'bar', 'baz'],
+                'native' => 'string',
             ],
         ];
         $issue3Columns = [
@@ -180,6 +189,7 @@ class MysqlInfoTest extends InfoTest
                 'autoinc' => false,
                 'primary' => true,
                 'options' => null,
+                'native' => 'string',
             ],
         ];
 

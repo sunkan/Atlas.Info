@@ -89,6 +89,11 @@ abstract class InfoTest extends \PHPUnit\Framework\TestCase
             'autoinc',
             'primary',
         ];
+
+        if (array_key_exists('native', current($expectCols))) {
+            $keys[] = 'native';
+        }
+
         foreach ($actualCols as $colName => $actualCol) {
             $expectCol = $expectCols[$colName];
             foreach ($keys as $key) {

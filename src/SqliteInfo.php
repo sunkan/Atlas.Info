@@ -12,6 +12,24 @@ namespace Atlas\Info;
 
 class SqliteInfo extends Info
 {
+    private const NATIVE_TYPE_MAP = [
+        'int' => 'int',
+        'integer' => 'int',
+        'numeric' => 'float',
+        'real' => 'float',
+
+        'bool' => 'int',
+
+        'timestamp' => 'string',
+
+        'set' => 'string',
+        'enum' => 'string',
+        'char' => 'string',
+        'varchar' => 'string',
+        'text' => 'string',
+        'blob' => 'string',
+    ];
+
     public function fetchCurrentSchema() : string
     {
         return 'main';
@@ -86,6 +104,7 @@ class SqliteInfo extends Info
             'autoinc' => null,
             'primary' => (bool) ($row['pk']),
             'options' => null,
+            'native' => self::NATIVE_TYPE_MAP[strtolower($type)] ?? 'mixed',
         ];
     }
 

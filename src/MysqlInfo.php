@@ -16,6 +16,41 @@ class MysqlInfo extends Info
 {
     protected $maria = false;
 
+    private const NATIVE_TYPE_MAP = [
+        'int' => 'int',
+        'tinyint' => 'int',
+        'smallint' => 'int',
+        'mediumint' => 'int',
+        'bigint' => 'int',
+        'decimal' => 'float',
+        'float' => 'float',
+        'double' => 'float',
+
+        'bool' => 'int',
+        'boolean' => 'int',
+
+        'timestamp' => 'string',
+        'datetime' => 'string',
+        'date' => 'string',
+        'time' => 'string',
+        'year' => 'string',
+
+        'set' => 'string',
+        'enum' => 'string',
+        'char' => 'string',
+        'varchar' => 'string',
+        'tinytext' => 'string',
+        'mediumtext' => 'string',
+        'longtext' => 'string',
+        'text' => 'string',
+        'tinyblob' => 'string',
+        'mediumblob' => 'string',
+        'longblob' => 'string',
+        'blob' => 'string',
+        'binary' => 'string',
+        'varbinary' => 'string',
+    ];
+
     public function __construct(Connection $connection)
     {
         parent::__construct($connection);
@@ -64,6 +99,8 @@ class MysqlInfo extends Info
         ) {
             $column['default'] = '';
         }
+
+        $column['native'] = self::NATIVE_TYPE_MAP[strtolower($column['type'])] ?? 'mixed';
 
         $extended = trim($def['_extended']);
 

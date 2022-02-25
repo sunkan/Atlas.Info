@@ -95,9 +95,9 @@ class MysqlInfo extends Info
         if (
             $this->maria
             && (in_array($column['type'], ['char', 'varchar', 'text']))
-            && $column['default'] === '\'\''
+            && is_string($column['default'])
         ) {
-            $column['default'] = '';
+            $column['default'] = trim($column['default'], "'");
         }
 
         $column['native'] = self::NATIVE_TYPE_MAP[strtolower($column['type'])] ?? 'mixed';

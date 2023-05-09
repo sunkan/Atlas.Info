@@ -49,6 +49,7 @@ class MysqlInfo extends Info
         'blob' => 'string',
         'binary' => 'string',
         'varbinary' => 'string',
+        'json' => 'string',
     ];
 
     public function __construct(Connection $connection)
